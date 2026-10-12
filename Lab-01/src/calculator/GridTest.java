@@ -12,7 +12,7 @@ public class GridTest {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 400);
         frame.setLocationRelativeTo(null);
-
+        
         ArrayList <JButton> buttons = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             JButton button = new JButton(Integer.toString(i + 1));
