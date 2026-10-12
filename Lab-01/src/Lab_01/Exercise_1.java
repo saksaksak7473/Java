@@ -17,7 +17,7 @@ public class Exercise_1 {
             sum += i;
             System.out.println(i);
         }
-        avg = sum / (1000 - number);
+        avg = sum / (1000 - number + 1);
         System.out.println("Sum is: " + sum);
         System.out.println("Average is: " + avg);
     }
