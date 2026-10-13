@@ -1,6 +1,7 @@
 {
+    "java.project.sourcePaths": ["Lab_01/src"],
+    "java.project.outputPath": "Lab_01/bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
         "Lab_01/lib/swingx-all-1.6.4.jar"
     ]
 }
