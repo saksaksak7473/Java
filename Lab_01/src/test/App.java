@@ -52,9 +52,9 @@ public class App {
         }
         TopRight.add(langPanel);
 
-        JButton noti = new JButton("🔔");
-        noti.setPreferredSize(new Dimension (50, 20));
-        TopRight.add(noti);
+        JButton notiButton = new JButton("🔔");
+        notiButton.setPreferredSize(new Dimension (50, 20));
+        TopRight.add(notiButton);
 
         JButton drawerButton = new JButton("Menu");
         JPopupMenu acc = new JPopupMenu();
