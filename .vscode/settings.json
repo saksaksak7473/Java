@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Lab-01/lib/swingx-all-1.6.4.jar"
+    ]
+}
