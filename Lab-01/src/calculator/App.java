@@ -3,14 +3,17 @@ package calculator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
-
+import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
-import org.jdesktop.swingx.prompt.PromptSupport;
+import javax.swing.UIManager;
 
 public class App {
     public static void main(String[] args) {
@@ -38,9 +41,7 @@ public class App {
         TopRight.setBackground(Color.GREEN);
         nav.add(TopRight);
 
-        JTextField search = new JTextField(15);
-        PromptSupport.setPrompt("Search...", search);
-        search.getText();
+        JTextField search = new PlaceholderTextField("Search...", 15);
         TopRight.add(search);
 
         JPanel langPanel = new JPanel(new GridLayout(1, 2, 0, 0));
@@ -90,5 +91,39 @@ public class App {
 
         window.getContentPane().setBackground(Color.GRAY);
         window.setVisible(true);
+    }
+}
+
+class PlaceholderTextField extends JTextField {
+    private final String placeholder;
+
+    PlaceholderTextField(String placeholder, int columns) {
+        super(columns);
+        this.placeholder = placeholder;
+    }
+
+    @Override
+    protected void paintComponent(Graphics graphics) {
+        super.paintComponent(graphics);
+
+        if (!getText().isEmpty()) {
+            return;
+        }
+
+        Graphics2D g = (Graphics2D) graphics.create();
+        try {
+            Color color = UIManager.getColor("TextField.placeholderForeground");
+            if (color == null) {
+                color = UIManager.getColor("TextField.inactiveForeground");
+            }
+            g.setColor(color != null ? color : new Color(128, 128, 128));
+
+            Insets insets = getInsets();
+            FontMetrics metrics = g.getFontMetrics(getFont());
+            int y = (getHeight() - metrics.getHeight()) / 2 + metrics.getAscent();
+            g.drawString(placeholder, insets.left, y);
+        } finally {
+            g.dispose();
+        }
     }
 }
