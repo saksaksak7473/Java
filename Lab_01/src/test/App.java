@@ -88,5 +88,7 @@ public class App {
 
         window.getContentPane().setBackground(Color.GRAY);
         window.setVisible(true);
+
+        System.out.println("Hello, World!");
     }
 }
