@@ -19,7 +19,6 @@ public class BorderLayoutTest {
         label.setHorizontalAlignment(JLabel.CENTER);
 
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-        panel.setSize(new Dimension(1, 215));
         panel.setBackground(Color.CYAN);
         for (int i = 0; i < 9; i ++) {
             JPanel subPanel = new JPanel();
